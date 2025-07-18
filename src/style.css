@@ -1,0 +1,390 @@
+/* AI Fitness Game Styles */
+:root {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  
+  --primary-color: #4CAF50;
+  --secondary-color: #2196F3;
+  --accent-color: #FF9800;
+  --error-color: #f44336;
+  --success-color: #4CAF50;
+  --background-color: #1a1a1a;
+  --surface-color: #2d2d2d;
+  --text-color: #ffffff;
+  --text-secondary: #b0b0b0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  min-height: 100vh;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Header Styles */
+header {
+  text-align: center;
+  padding: 1rem 0;
+  border-bottom: 2px solid var(--surface-color);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Exercise Selector */
+.exercise-option {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.exercise-button {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.exercise-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.exercise-button:active {
+  transform: translateY(0);
+}
+
+/* Main Content */
+main {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2rem;
+  padding: 2rem 0;
+  align-items: start;
+}
+
+/* Camera Container */
+#camera-container {
+  position: relative;
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  overflow: hidden;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+#video-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+#pose-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* Game Stats */
+#game-stats {
+  min-width: 250px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.counter {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.counter-cats, .counter-dogs, .counter-penguins {
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.counter-cats { color: #FF6B6B; }
+.counter-dogs { color: #4ECDC4; }
+.counter-penguins { color: #45B7D1; }
+
+.rep-display {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.rep-count {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--accent-color);
+  display: block;
+}
+
+/* Animal Display */
+#animal-display {
+  grid-column: 1 / -1;
+  min-height: 200px;
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+/* Footer */
+footer {
+  padding: 2rem 0;
+  border-top: 2px solid var(--surface-color);
+}
+
+.instruction-panel {
+  background-color: var(--surface-color);
+  padding: 1.5rem;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.instruction-panel h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.instruction-panel p {
+  margin: 0.5rem 0;
+  color: var(--text-secondary);
+}
+
+/* Error Messages */
+.error-message {
+  background-color: var(--error-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+  
+  #game-stats {
+    min-width: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .exercise-option {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .exercise-button {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  #camera-container {
+    min-height: 300px;
+  }
+  
+  /* Optimize camera controls for touch */
+  .camera-controls {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+  
+  .camera-control-btn {
+    padding: 10px 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    min-width: 120px;
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  .camera-device-selector {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    background-color: var(--surface-color);
+    color: var(--text-color);
+    min-height: 44px; /* Minimum touch target size */
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  #app {
+    padding: 0.5rem;
+  }
+  
+  header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .exercise-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    min-height: 44px; /* Minimum touch target size */
+  }
+  
+  #game-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  /* Optimize for portrait orientation */
+  #camera-container {
+    min-height: 250px;
+  }
+  
+  /* Fullscreen mode for exercises */
+  .fullscreen-mode #camera-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    border-radius: 0;
+  }
+  
+  .fullscreen-toggle {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  /* Optimize form feedback for small screens */
+  .form-feedback {
+    font-size: 0.9rem;
+    padding: 5px 10px;
+  }
+}
+
+/* Orientation specific styles */
+@media (max-width: 768px) and (orientation: landscape) {
+  #app {
+    padding: 0.25rem;
+  }
+  
+  header {
+    padding: 0.5rem 0;
+  }
+  
+  header h1 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  main {
+    padding: 0.5rem 0;
+  }
+  
+  #camera-container {
+    min-height: 200px;
+  }
+  
+  /* Optimize layout for landscape */
+  .landscape-mode main {
+    display: grid;
+    grid-template-columns: 1fr 200px;
+    gap: 0.5rem;
+  }
+  
+  .landscape-mode #game-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .landscape-mode #animal-display {
+    grid-column: auto;
+  }
+}
+
+/* Touch-specific optimizations */
+@media (hover: none) {
+  /* Larger touch targets */
+  button, 
+  select, 
+  .tab-button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Add active state for touch feedback */
+  button:active,
+  .exercise-button:active {
+    transform: scale(0.95);
+    transition: transform 0.1s;
+  }
+}
