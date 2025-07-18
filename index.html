@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Fitness Game - Exercise & Save Animals</title>
+    <meta name="description" content="AI-powered fitness game that tracks your exercise form and lets you save virtual animals through workouts">
+  </head>
+  <body>
+    <div id="app">
+      <header>
+        <h1>AI Fitness Game</h1>
+        <div id="exercise-selector"></div>
+      </header>
+      
+      <main>
+        <div id="camera-container">
+          <div id="video-container"></div>
+          <div id="pose-overlay"></div>
+        </div>
+        
+        <div id="game-stats">
+          <div id="animal-counter"></div>
+          <div id="rep-counter"></div>
+        </div>
+        
+        <div id="animal-display"></div>
+      </main>
+      
+      <footer>
+        <div id="instructions"></div>
+        <div id="progress-dashboard"></div>
+      </footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
